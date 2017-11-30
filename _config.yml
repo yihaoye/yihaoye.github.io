@@ -190,6 +190,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-remote-theme
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -250,3 +251,5 @@ defaults:
       comments: # true
       share: true
       related: true
+
+remote_theme: "mmistakes/minimal-mistakes"
