@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Auth0 Getting Start"
+title:  "Auth0 入门简介"
 date:   2017-05-27 00:38:03 +1200
 categories: auth0
 ---
-Auth0 Overview：
+Auth0 概观
     Auth0是一个身份管理平台。
     Auth0主要提供身份认证（即登陆账号）与授权服务（不同级别的用户被允许访问的应用资源不同，即权限不同）。
     你的应用可以连接Auth0并定义你想使用哪些身份提供者（identity provider，简写为IdP），这决定了你的用户可以通过哪些身份提供者（比如：微软AD、谷歌账号、Facebook账号、GitHub账号等）登陆你的应用。
@@ -36,5 +36,8 @@ Auth0 Overview：
     （5）SAML
     （6）WS-Federation
 
-
+基本
+    这里会用一个简单的例子/场景，介绍如何使用Auth0。
+    第一次注册Auth0时，你可以用账号密码或社交网络账号如Facebook、谷歌、微软等账号注册。
+    成功注册后，你会被引导创建一个Tenant。
 
