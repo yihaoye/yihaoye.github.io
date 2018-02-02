@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Auth0 getting start"
+title:  "Auth0 Getting Start"
 date:   2017-05-27 00:38:03 +1200
 categories: auth0
 ---
