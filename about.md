@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi my name is yihao, I am a developer in Auckland, New Zealand.
+My skill includes: JavaScript, Python, Java, React.js, MongoDB, Ruby on Rails, Azure etc.
+You can contact me with my email [yihaoyemail@gmail.com](yihaoyemail@gmail.com)
 
-You can find the source code for the Jekyll new theme at:
+You can find my personal project source code at:
 {% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+[yihao](https://github.com/yihaoye)
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)

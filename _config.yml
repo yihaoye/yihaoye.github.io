@@ -16,11 +16,11 @@
 title: yihao个人技术博客
 email: yihaoyemail@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  个人技术学习、踩坑日志
+  个人技术学习、踩坑日志:)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
-github_username:  https://github.com/yihaoye
+github_username:  yihaoye
 
 # Build settings
 markdown: kramdown
