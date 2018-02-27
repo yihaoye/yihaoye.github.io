@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Zuora Hosted Payment Page"
+date:   2018-02-27 15:47:15 +1200
+categories: zuora
+---
+Zuora是一个订阅支付系统
+
+Zuora的一个重要功能是HPM，下图将用一图讲解如何使用HPM，以及整个数据流
