@@ -17,4 +17,5 @@ SSO的例子：
 
     一般现在的第三方认证登录是基于OAuth2.0的。
 
+https://www.cnblogs.com/ywlaker/p/6113927.html
 SSO和第三方认证登录区别在于SSO看起来像是使用同一个用户credential数据库并使用同一个cookie的，而第三方认证登录则是简易地复制粘帖似地完成了一次之前的注册过程。
