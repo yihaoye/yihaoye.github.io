@@ -93,3 +93,12 @@ Data Modeling（数据模型、建模）
                 单击导航栏中的“Properties”选项卡。如果你没有看到它，请查看最右的“More”下拉菜单。
                 点击顶部的New。
                 输入Property的Name和Price，然后单击保存。
+
+
+二、创建对象关系
+
+    学习目标
+        * 定义不同类型的“对象关系”及其应用案例
+        * 创建或修改lookup（查找）关系
+        * 创建或修改master-detail（主从）关系
+
