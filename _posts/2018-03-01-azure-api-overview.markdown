@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Azure API 01"
+title:  "Azure API Overview"
 date:   2018-03-01 16:52:41 +1200
 categories: azure
 ---

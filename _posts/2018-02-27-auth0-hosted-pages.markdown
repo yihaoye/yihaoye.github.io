@@ -4,7 +4,9 @@ title:  "Auth0 Hosted Pages"
 date:   2018-02-27 11:45:22 +1200
 categories: auth0
 ---
-原文链接：https://auth0.com/docs/hosted-pages
+原文链接：
+https://auth0.com/docs/hosted-pages
+https://auth0.com/docs/hosted-pages/login
 
 使用Auth0以助你认证用户有两种方式：
     1. Universal Login（包含三种：Lock Widget、Lock Passwordless Widget、Custom Login Form。前两种使用lock.js，最后一个使用auth0.js）（用户进行登录或注册操作时会redirect到托管在Auth0的服务器的Hosted Page页面，比如https://{your_username}.{country_code}.auth0.com/login?client={your_client_code}，完成后再被redirect回你的App的网址，但是如果重定向地址里包含了connection参数及其值（与IDP相关），则用户可能会直接跳过Auth0的Hosted Page页面而直接跳转到该IDP的认证登录页面、网址）
@@ -17,9 +19,18 @@ categories: auth0
 
 Single Sign-On
     如果你想使用、实现SSO，你最好使用Universal Login而不是你自定义的自己App的登录页面。
-    当用户登录了其余SSO应用后，SSO顶级域名的cookie会存放在浏览器中，其过程是当执行认证请求时，会检查cookie
+    当用户通过Hosted Page登录了其余任意一个同Tenant下的App后，Auth0的tenant层域名（比如https://{your_username}.{country_code}.auth0.com/）的cookie会存放在浏览器中，其过程是当下次执行认证请求时（同一个App或另一个App），会检查该App的Tenant层域名的cookie（前提是在Auth0 dashboard做好相关配置，如该App的client启用“Use Auth0 instead of the IdP to do Single Sign On”甚至启用“silent SSO”），如果cookie被验证通过，则用户可能会直接登录进App（如果没启用silent SSO则会重定向到一个显示过往登录账号的Hosted Login Page，用户只要点选过往账号按钮即可立刻登录该账号）。
+    除了上面讲的dashboard配置，你无需在dashboard的Hosted Page的托管页面代码上做任何改动。
 
+传递自定义参数到Universal Login Page（Hosted Page）
+    你可以传递自定义参数到Universal Login Page，并基于参数的值做出响应，首先你在自己的App发送请求或重定向时在URL中加入该参数名（比如title）及其值，然后你在Auth0 dashboard的Hosted Page的代码中通过访问config.extraParams.title可以获取参数的值并以此编写响应逻辑与动作。
+    但是在使用config对象前需要在代码里先设置
+        var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+    然后才能调用config或config.extraParams
 
+如果要使你不同的App应用使用不同的Hosted Page或Rules或Tenant配置，你需要创建新的tenant，然后在相关tenant下创建client（即应用），然后该tenant下的Hosted Page、Rules、Tenant配置会被该Tenant下的所有应用share。
+使用不同Tenant的坏处是不同Tenant不在共享数据与配置，所以要根据你的业务要求考虑是否选择这一方式。
+创建新的Tenant只需要在左上方下拉菜单点击“Create Tenant”，然后以后想要切换Tenant时只需要点击“Switch Tenant”，非常方便。
 
 
 Auth0有两套API：
