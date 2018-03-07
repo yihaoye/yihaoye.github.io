@@ -38,14 +38,21 @@ Auth0有两套API：
     2. Management API：几乎所有Auth0 Dashboard上的操作（比如配置等等）都可以用此API完成。
 
 使用SDK或API的自定义页面的认证过程：
-    (在Auth0设置不开启OIDC Conformant，点开embedded lock widget后点选IdP不用用户consent直接跳往下面第一个URL)
+    （在Auth0设置不开启OIDC Conformant，点开embedded lock widget后点选IdP，如果发现用户浏览器已登录该IdP则不用用户consent直接跳往下面第1个URL）
     1. https://{username}.{country}.auth0.com/authorize?scope=openid&response_type=token&connection=google-oauth2&sso=true&client_id={auth0_client_id}redirect_uri=http://localhost:3000/#access_token=xxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer&auth0Client=xxxxxxxx
     2. https://login.{country}.auth0.com/{username}/authorize?scope=openid&response_type=token&connection=google-oauth2&sso=true&client_id={auth0_client_id}redirect_uri=http://localhost:3000/#access_token=xxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer&auth0Client=xxxxxxxx
     3. https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https：//login.{country}.auth0.com/login/callback&scope=email profile&state=xxxxxxxx&client_id=xxxxxxxx.apps.googleusercontent.com
     4. https://login.{country}.auth0.com/login/callback?state=xxxxxxxx&code=xxxxxxxx#
     5. http://localhost:3000/#access_token=xxxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer
     注意：2的这个URL是1这个URL的响应数据，3是2的响应数据，4又是3的响应数据，5是4的响应数据。1、2中的access_token一样，1、2中的id_token也一样，1、2中的auth0Client也一样。
+    
     Cross Origin Authentication以及third party cookie在这里的应用：
+    embedded lock widget不像universal login那样重定向到某一central（即Auth0 Server），因为该widget托管在你的App而不是Auth0。用户 credentials在这之后会发送至authentication provider（如Google）进行用户身份第三方认证，在你的web app这将是cross-origin 请求。
+
+    （但如果点开embedded lock widget后点选IdP后发现用户浏览器未登录IdP，则与普通的第三方认证一样了）
+    比如第一个重定向的IdP的consent页面上显示比如“Google: Choose an account to continue to auth0.com”
+    （https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=xxxxxxxx.apps.googleusercontent.com&as=xxxxxxxx&destination=https://login.au.auth0.com&approval_state=xxxxxxxx&xsrfsig=xxxxxxxx&flowName=GeneralOAuthFlow）
+
 
 题外话：应该何时选择使用Auth0 Universal Login（即Hosted Page）何时选择结合Auth0 API使用自定义页面？
     Universal Login：当你想方便或允许多种登陆方式（第三方认证登陆、账号密码等等）（第三方认证登陆包括企业网站或社交网站），你想更安全
