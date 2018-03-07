@@ -8,6 +8,7 @@ categories: authentication
 
 OAuth 2.0
 http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
+https://www.cnblogs.com/gabrielchen/p/5800225.html
 https://barudisshu.github.io/2017/08/04/auth/oauth2/oauth2-authentication-models/
 如果想看Oauth 2.0的标准规范可搜寻RFC6749国际标准文档。
 

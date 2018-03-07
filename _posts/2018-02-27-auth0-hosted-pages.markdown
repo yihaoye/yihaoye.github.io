@@ -55,6 +55,7 @@ Auth0有两套API：
     （但如果点开embedded lock widget后点选IdP后发现用户浏览器未登录IdP，则与普通的第三方认证一样了）
     比如第一个重定向的IdP的consent页面上显示比如“Google: Choose an account to continue to auth0.com”
     （https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=xxxxxxxx.apps.googleusercontent.com&as=xxxxxxxx&destination=https://login.au.auth0.com&approval_state=xxxxxxxx&xsrfsig=xxxxxxxx&flowName=GeneralOAuthFlow）
+    待续...
 
 
 题外话：应该何时选择使用Auth0 Universal Login（即Hosted Page）何时选择结合Auth0 API使用自定义页面？
