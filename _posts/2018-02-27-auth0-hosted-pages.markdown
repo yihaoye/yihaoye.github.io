@@ -38,7 +38,7 @@ Auth0有两套API：
     2. Management API：几乎所有Auth0 Dashboard上的操作（比如配置等等）都可以用此API完成。
 
 使用SDK或API的自定义页面的认证过程：
-    （在Auth0设置不开启OIDC Conformant，点开embedded lock widget后点选IdP，如果发现用户浏览器已登录该IdP则不用用户consent直接跳往下面第1个URL）
+    （在Auth0设置不开启OIDC Conformant，点开embedded lock widget后点选IdP，如果发现用户浏览器已登录该IdP则不用用户consent直接跳往下面第1个URL，这一过程很可能使用了Oauth2.0中的Client Credentials Grant所以跳过了用户需要在IdP页面授权这一过程）
     1. https://{username}.{country}.auth0.com/authorize?scope=openid&response_type=token&connection=google-oauth2&sso=true&client_id={auth0_client_id}redirect_uri=http://localhost:3000/#access_token=xxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer&auth0Client=xxxxxxxx
     2. https://login.{country}.auth0.com/{username}/authorize?scope=openid&response_type=token&connection=google-oauth2&sso=true&client_id={auth0_client_id}redirect_uri=http://localhost:3000/#access_token=xxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer&auth0Client=xxxxxxxx
     3. https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https：//login.{country}.auth0.com/login/callback&scope=email profile&state=xxxxxxxx&client_id=xxxxxxxx.apps.googleusercontent.com
