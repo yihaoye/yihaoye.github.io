@@ -45,9 +45,12 @@ Auth0有两套API：
     4. https://login.{country}.auth0.com/login/callback?state=xxxxxxxx&code=xxxxxxxx#
     5. http://localhost:3000/#access_token=xxxxxxxx&id_token={jwt}&expires_in={expire_time}&token_type=Bearer
     注意：2的这个URL是1这个URL的响应数据，3是2的响应数据，4又是3的响应数据，5是4的响应数据。1、2中的access_token一样，1、2中的id_token也一样，1、2中的auth0Client也一样。
-    
+
     Cross Origin Authentication以及third party cookie在这里的应用：
     embedded lock widget不像universal login那样重定向到某一central（即Auth0 Server），因为该widget托管在你的App而不是Auth0。用户 credentials在这之后会发送至authentication provider（如Google）进行用户身份第三方认证，在你的web app这将是cross-origin 请求。
+    Third-party cookies：
+    虽然浏览器会限制网页只得取得它自己对应的cookie，但大部分浏览器允许第三方cookies的使用，即比如你的Web App使用了一些托管在Google服务器上的资源或组件（比如图片、文件、iframe等等），则用户打开你的App时，谷歌服务器也可以实时访问该用户的浏览器中属于它的cookies。
+
 
     （但如果点开embedded lock widget后点选IdP后发现用户浏览器未登录IdP，则与普通的第三方认证一样了）
     比如第一个重定向的IdP的consent页面上显示比如“Google: Choose an account to continue to auth0.com”
