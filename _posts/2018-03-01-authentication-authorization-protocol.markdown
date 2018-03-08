@@ -22,3 +22,10 @@ OpenID
 
 
 SAML
+
+
+
+References：
+1. 对cookie和session不熟悉的请看这两篇文章
+    https://www.zhihu.com/question/19786827/answer/28752144
+    http://blog.csdn.net/fangaoxin/article/details/6952954
