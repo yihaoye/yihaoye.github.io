@@ -95,10 +95,26 @@ Data Modeling（数据模型、建模）
                 输入Property的Name和Price，然后单击保存。
 
 
-二、创建对象关系
+二、创建对象关系（Object Relationships）
 
     学习目标
         * 定义不同类型的“对象关系”及其应用案例
         * 创建或修改lookup（查找）关系
         * 创建或修改master-detail（主从）关系
 
+    什么是对象关系？
+        对象关系是将两个对象关联在一起的特殊字段类型。
+        举例：一个像Account这样的标准对象。如果销售代表打开一个Account，他们可能已经与该Account的几个Contact（联系人，比如高管或IT经理）谈过话或已经建立了联系，并将这些Contact（联系人）的信息存储在Salesforce中。
+        因此，在Account对象和Contact对象之间应该存在某种关系。且当你查看Salesforce中的Account记录（records）时，可以看到“相关”选项卡上有Contact（联系人）部分。你还可以看到有一个按钮，可让你快速将新的Contact添加到该Account。
+
+        Account与Contact关系是Salesforce中标准关系的一个示例。就像自定义对象和自定义字段一样，你也可以建立自定义关系。
+
+    对象关系的世界
+        主要有两种对象关系类型：lookup（查找）和master-detail（主从）。
+
+        查找关系
+        在上面的Account与Contact关系示例中，两个对象之间的关系是查找关系。查找关系基本上将两个对象链接在一起，以便你可以从另一个对象上的“相关”项目中“查找”一个对象。
+        查找关系可以是一对一或一对多。Account到Contact关系是一对多的，因为一个Account可以有许多相关的Contact。对于DreamHouse场景，你可以在Property对象和Home Seller对象之间创建一对一的关系。
+
+        主从关系
+        相较于查找关系的随意性，主从关系更加紧密。在这种关系中，一个对象是主人，另一个是细节。主对象控制着细节对象的某些行为，比如谁可以查看细节的数据。例如，假设一个Property（房产）的房主不希望他们的房子再在市场上挂牌，DreamHouse不希望保留任何对该Property（房产）的Offer（报价）。通过Property和Offer之间的主从关系，你可以从系统中一次性删除该Property对象及其所有关联的Offer记录（关联删除）。
