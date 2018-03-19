@@ -41,3 +41,61 @@ categories: salesforce
                 /describe - 操作动作;在这里是“描述”请求
             执行结果是Account元数据出现在屏幕上（Workbench会自动格式化了响应数据）。若要查看原始JSON响应，请单击Show Raw Response。
             Account元数据以JSON形式显示在一些HTTP响应头字段下方。由于REST API支持JSON和XML，因此可以更改请求头字段以指定XML格式的响应。在HTTP方法旁边，单击Headers，对于Accept的header值，将“application/json”替换为“application/xml”，点击执行，则这次返回原始的XML响应结果。
+
+    创建一个Account
+            现在使用SObject资源和POST方法创建一个Account。在URI输入框中，将现有文本替换为/services/data/vXX.0/sobjects/account。选择POST。这时出现了请求报文主体输入框，在这里可以为新Account指定其相关字段的值。
+            请求报文主体例子：
+            {
+                "Name" : "NewAccount1",
+                "ShippingCity" : "San Francisco"
+            }
+            点击执行后如果返回“success:true”，则Account已被成功创建，返回的ID即Account的ID。（否则可以展开errors文件夹以查询反馈的错误信息）
+
+    执行查询
+            现在假设你或其他用户创建了数百个Account，而你想查找航运城市是旧金山的所有Account的Name。你可以使用查询资源执行SOQL查询，并根据需要准确记录。
+            URI输入框文本：/services/data/vXX.0/query/?q=SELECT+Name+From+Account+WHERE+ShippingCity='San+Francisco'。（我们用查询字符串中的+字符替换了空格，以正确编码URI，更多知识请链接阅读HTML URL编码）选择GET方法，然后单击执行。
+            展开records文件夹。可以看到刚刚创建的Account - NewAccount1。点击该Account的文件夹，再点击attributes，url旁边是该Account的资源URI。
+
+    Salesforce提供了不同语言的SDK，这样你调用API时更方便易用，比如Nforce（Node.js）和Restforce（Ruby）。
+    Nforce用例：
+        var nforce = require('nforce');
+        // create the connection with the Salesforce connected app
+        var org = nforce.createConnection({
+            clientId: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            redirectUri: process.env.CALLBACK_URL,
+            mode: 'single'
+        });
+        // authenticate and return OAuth token
+        org.authenticate({
+            username: process.env.USERNAME,
+            password: process.env.PASSWORD+process.env.SECURITY_TOKEN
+        }, function(err, resp){
+            if (!err) {
+                console.log('Successfully logged in! Cached Token: ' + org.oauth.access_token);
+                // execute the query
+                org.query({ query: 'select id, name from account limit 5' }, function(err, resp){
+                    if(!err && resp.records) {
+                        // output the account names
+                        for (i=0; i<resp.records.length;i++) {
+                            console.log(resp.records[i].get('name'));
+                        }
+                    }
+                });
+            }
+            if (err) console.log(err);
+        });
+    Restforce用例：
+        require 'restforce'
+        // create the connection with the Salesforce connected app
+        client = Restforce.new :username => ENV['USERNAME'],
+            :password       => ENV['PASSWORD'],
+            :security_token => ENV['SECURITY_TOKEN'],
+            :client_id      => ENV['CLIENT_ID'],
+            :client_secret  => ENV['CLIENT_SECRET']
+        // execute the query
+        accounts = client.query("select id, name from account limit 5")
+        // output the account names
+        accounts.each do |account|
+            p account.Name
+        end
