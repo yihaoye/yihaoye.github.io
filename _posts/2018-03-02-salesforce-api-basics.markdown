@@ -33,7 +33,7 @@ categories: salesforce
             发布/订阅模型通过消除轮询的需要来减少API请求的数量。Streaming API对于编写应用程序非常有用，否则这些应用程序需要频繁轮询API请求以检查数据是否更改。
     
     API访问和身份验证
-        访问Salesforce API，你所需要的只是先注册有以下版本中的一个Org：企业版，无限制版，开发人员版，性能版或专业版（带add-onssssssss），确保你具有“API启用”权限，并且已准备好开始集成。
+        访问Salesforce API，你所需要的只是先注册有以下版本中的一个Org：企业版，无限制版，开发人员版，性能版或专业版（带add-on），确保你具有“API启用”权限，并且已准备好开始集成。
         除SOAP API login（）调用外，所有API调用都需要进行身份验证。你可以使用其中一个受支持的OAuth流或使用从SOAP API login（）调用返回的session ID进行身份验证。查看developer guide，了解选择的API以便开始使用。
 
     API限制
@@ -41,8 +41,30 @@ categories: salesforce
         有两种类型的API限制。并发限制限制了同时运行的长时间调用（20秒或更长时间）的数量。总限制限制了在24小时内的调用数量。
         并发限制因Org类型而异。对于开发者版本的Org，并发限制是一次五个长时间运行的调用。对于Sandbox的Org，限制是25个长时间运行的调用。
         根据你购买的Org版本，license类型、扩展包和总限制会有所不同。例如，Enterprise Edition Org每个Salesforce license可获得1,000个调用，每个Salesforce Light App license可获得200个调用。使用Unlimited Apps Pack，同一个企业版Org可以获得额外的4000个调用。根据Org版本总数限制也受到最低限额和最高限额的限制。
-        你有几种方法来检查你的剩余API调用。你可以在"System Overview"页面的"API Usage box"框中查看它们。从设置中，在"Quick Find"框中输入"System Overview"，然后选择"System Overview"。你也可以为你的Org超出你指定的多个API调用设置通知。为此，从安装程序中，在快速查找方框中输入API使用通知，然后选择API使用通知。
-        在使用REST或SOAP API时，LimitInfoHeader响应标题会为你提供有关剩余呼叫的信息。你还可以访问REST API限制资源，了解组织中各种限制的信息。
+        你有几种方法来检查你的剩余API调用限制，你可以在"System Overview"页面的"API Usage box"框中查看它们，在"Setup"中，在"Quick Find"框中输入"System Overview"，然后选择"System Overview"。你也可以设置通知，在当Org收到超出指定的API调用限制时作出通知，在"Setup"中，在"Quick Find"方框中输入"API Usage Notifications"，然后选择结果中的"API Usage Notifications"。
+        在使用REST或SOAP API时，HTTP返回数据里的LimitInfoHeader response header会为你提供有关剩余调用的信息。你还可以访问REST API限制资源，了解组织中各种限制的信息。
+
+    什么时候应该使用哪个API？
+        根据需求选择正确的API是重要的，以下是最常用的API的一些信息，包括支持的协议，数据格式，通信范例和实用案例。
+        API名	               协议	                  数据格式	               通信
+        REST API	            REST	                JSON, XML	            同步Synchronous
+        SOAP API	            SOAP(WSDL)	            XML	                    同步Synchronous
+        Chatter REST API	    REST	                JSON, XML	            同步Synchronous (photos are processed asynchronously)
+        Analytics REST API	    REST	                JSON, XML	            同步Synchronous
+        Bulk API	            REST	                CSV, JSON, XML	        异步Asynchronous
+        Metadata API	        SOAP(WSDL)	            XML	                    异步Asynchronous
+        Streaming API	        Bayeux	                JSON	                异步Asynchronous (stream of data)
+        Apex REST API	        REST	                JSON, XML, Custom	    同步Synchronous
+        Apex SOAP API	        SOAP(WSDL)	            XML	                    同步Synchronous
+        Tooling API	            REST or SOAP(WSDL)	    JSON, XML, Custom	    同步Synchronous
+
+    何时使用REST API
+        REST API的优点包括易于集成和开发，并且它是用于移动应用程序和Web项目的优秀技术选择以用于与Salesforce进行交互。但是，如果你有多个要处理的记录，请考虑使用Bulk API，该API基于REST原则并针对大量数据集进行了优化。大部分场景下一般使用REST API。
+    何时使用SOAP API
+        SOAP API也用于与Salesforce进行交互，你可以使用SOAP API创建，检索，更新或删除记录。你还可以使用SOAP API执行搜索等等。
+        例如，你可以使用SOAP API将Salesforce与你的Org的ERP和财务系统集成。你还可以向公司portal提供实时销售和支持信息，并使用客户信息填充关键业务系统。
+    何时使用Chatter REST API
+        使用Chatter REST API显示Salesforce数据，特别是在移动应用程序中。除Chatter feeds, users, groups, 和followers外，Chatter REST API还提供对files, recommendations, topics, notifications, Data.com采购等salesforce数据的程式访问方法。Chatter REST API提供feeds，就像Facebook和Twitter提供的API一样，它还提供了了Chatter之外的Salesforce功能。
 
 
 二、使用REST API
