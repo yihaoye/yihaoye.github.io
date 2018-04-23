@@ -7,6 +7,42 @@ categories: salesforce
 原文链接：https://trailhead.salesforce.com/modules/api_basics
 
 一、Salesforce API概述
+    学习目标
+        * 了解Salesforce开发中API优先策略的好处
+        * REST API, SOAP API, Bulk API以及Streaming API的使用场景
+        * 了解每种API限制并描述它们如何计算运行
+
+    Salesforce的API优先策略
+        Salesforce采用API优先策略来让你构建你的Salesforce应用上的features。"API优先"意味着在专注于设计公司的Salesforce应用UI之前为该应用features构建强大的API。这种方法使Salesforce开发人员能够灵活地根据需要操纵数据。
+        Salesforce知道其客户和合作伙伴总想有新的方式去扩展Salesforce功能和AppExchange应用程序，也因此提供了用于在平台上开发的综合工具箱，这样使得Salesforce可以在API之上构建UI，以确保它们之间的行动相同协调。
+
+    Salesforce Data APIs
+        在这里将重点介绍了常用API们：它们是REST API，SOAP API，Bulk API和Streaming API。它们一起组成了Salesforce Data APIs。它们的目的是让你操纵Salesforce数据，而其他API可让你执行自定义页面布局或构建自定义开发工具等功能。你也可以使用其他Salesforce API来操纵Salesforce数据的子集，例如，Analytics REST API侧重于Analytics。但是，这四种API是广泛使用在核心Salesforce数据上的API。
+
+        REST API
+            REST API是基于RESTful原则的简单而强大的Web服务。它通过REST资源和HTTP方法公开各种Salesforce功能。例如，你可以创建，读取，更新和删除（CRUD）记录，搜索或查询数据，检索Object元数据以及访问Org中有关限制的信息。REST API支持XML和JSON。
+            由于REST API具有轻量级的请求和响应框架，并且易于使用，因此非常适合编写移动和Web应用程序。
+        SOAP API
+            SOAP API是基于SOAP标准协议的健壮且功能强大的Web服务。它使用Web服务描述语言（WSDL）文件来严格定义通过API访问数据的参数。SOAP API仅支持XML。大部分SOAP API功能也可以通过REST API获得。这取决于哪个标准更好地满足你的需求。
+            因为SOAP API使用WSDL文件作为API和使用者之间的协议，所以编写服务器到服务器的集成非常适合。
+        Bulk API（批量API）
+            Bulk API是专门用于一次加载和查询大量数据的RESTful API，"大量"的意思是50,000条或更多记录。Bulk API是异步的，这意味着你可以提交请求并稍后返回结果。处理大量数据时，这种方法是首选方法。Bulk API现版本是2.0。
+            Bulk API非常适合执行涉及大量记录的任务，例如首次将数据加载到你的Org中。
+        Streaming API
+            Streaming API是一种专门的API，用于设置每当数据被更改时会触发的通知。它使用发布-订阅或发布/订阅模型，用户可以在其中订阅频道，这些频道将广播某些数据的更改。
+            发布/订阅模型通过消除轮询的需要来减少API请求的数量。Streaming API对于编写应用程序非常有用，否则这些应用程序需要频繁轮询API请求以检查数据是否更改。
+    
+    API访问和身份验证
+        访问Salesforce API，你所需要的只是先注册有以下版本中的一个Org：企业版，无限制版，开发人员版，性能版或专业版（带add-onssssssss），确保你具有“API启用”权限，并且已准备好开始集成。
+        除SOAP API login（）调用外，所有API调用都需要进行身份验证。你可以使用其中一个受支持的OAuth流或使用从SOAP API login（）调用返回的session ID进行身份验证。查看developer guide，了解选择的API以便开始使用。
+
+    API限制
+        Salesforce会限制每个Org的API调用次数，以确保实例（Instance）的健康状况。这些限制旨在防止流氓脚本攻击服务器，限制不妨碍你的日常工作。但熟悉它们是必要的。
+        有两种类型的API限制。并发限制限制了同时运行的长时间调用（20秒或更长时间）的数量。总限制限制了在24小时内的调用数量。
+        并发限制因Org类型而异。对于开发者版本的Org，并发限制是一次五个长时间运行的调用。对于Sandbox的Org，限制是25个长时间运行的调用。
+        根据你购买的Org版本，license类型、扩展包和总限制会有所不同。例如，Enterprise Edition Org每个Salesforce license可获得1,000个调用，每个Salesforce Light App license可获得200个调用。使用Unlimited Apps Pack，同一个企业版Org可以获得额外的4000个调用。根据Org版本总数限制也受到最低限额和最高限额的限制。
+        你有几种方法来检查你的剩余API调用。你可以在"System Overview"页面的"API Usage box"框中查看它们。从设置中，在"Quick Find"框中输入"System Overview"，然后选择"System Overview"。你也可以为你的Org超出你指定的多个API调用设置通知。为此，从安装程序中，在快速查找方框中输入API使用通知，然后选择API使用通知。
+        在使用REST或SOAP API时，LimitInfoHeader响应标题会为你提供有关剩余呼叫的信息。你还可以访问REST API限制资源，了解组织中各种限制的信息。
 
 
 二、使用REST API
