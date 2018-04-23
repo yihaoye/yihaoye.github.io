@@ -65,6 +65,29 @@ categories: salesforce
         例如，你可以使用SOAP API将Salesforce与你的Org的ERP和财务系统集成。你还可以向公司portal提供实时销售和支持信息，并使用客户信息填充关键业务系统。
     何时使用Chatter REST API
         使用Chatter REST API显示Salesforce数据，特别是在移动应用程序中。除Chatter feeds, users, groups, 和followers外，Chatter REST API还提供对files, recommendations, topics, notifications, Data.com采购等salesforce数据的程式访问方法。Chatter REST API提供feeds，就像Facebook和Twitter提供的API一样，它还提供了了Chatter之外的Salesforce功能。
+    何时使用Analytics REST API
+        你可以使用Analytics REST API以访问Salesforce Analytics的信息（如datasets，lenses，和dashboards）。例如可以直接向Analytics平台发送查询，访问已导入到Analytics平台的datasets、创建和获取lenses、访问XMD信息、获取datasets版本的列表、创建和获取Analytics applications、创建，更新和获取Analytics dashboards、获取application的依赖关系列表、确定用户可以使用哪些功能、使用snapshots、操作重复的datasets。
+    何时使用Bulk API
+        Bulk API基于REST协议，并针对加载或删除大量数据进行了优化。你可以用它来一次性异步地查询，查询所有，插入，更新，插入或删除许多记录，Salesforce会在后台处理每批次。
+        SOAP API针对实时客户端应用程序，对一次更新几条记录的进行了优化。所以你也可以使用SOAP API处理多个记录，但是当数据集包含数十万条记录时，SOAP API不太实用，Bulk API旨在使处理从数千条到数百万条记录的数据变得简单。
+        使用Bulk API的最简单方法是使其能够使用CSV文件处理Data Loader中的记录，使用Data Loader可以避免编写复杂的API调用程序与逻辑。
+    何时使用Metadata API
+        使用Metadata API可以获取，部署，创建，更新或删除你的Org的自定义项/信息，最常见的用途是将sandbox或testing的Org里的更改更新迁移到production的Org。Metadata API旨在用于管理自定义设置和构建可以管理元数据模型的工具，而不是处理数据本身。
+        访问Metadata API中功能的最简单方法是使用Force.com IDE或Ant Migration Tool，这两个工具都是基于Metadata API构建的，分别使用标准的Eclipse和Ant工具来简化使用Metadata API。
+        Force.com IDE构建在Eclipse平台上，适用于熟悉集成开发环境的程序员，开发者可以在该IDE中进行代码编译，测试和部署。
+        如果你倾向使用脚本或命令行在本地目录和Salesforce Org之间传递元数据，则应选择Ant Migration Tool。
+    何时使用Streaming API
+        使用Streaming API接收与你定义的SOQL查询相匹配的数据更改通知。
+        如果你希望将通知从服务器推送到客户端时，建议使用Streaming API。持续对Salesforce服务器或基础架构进行轮询的应用程序会消耗不必要的API调用和处理时间，Streaming API减少了无效的请求（不返回数据或更新），且非常适用于大部分数据更改通知的需求。
+        Streaming API使你可以减少API调用的数量并提高性能。
+    何时使用Apex REST API
+        当你想通过API调用自己写好的Apex类/程序时，你需要使用Apex REST API，这样外部应用程序可以通过REST访问调用你的Apex代码。Apex REST API支持OAuth 2.0和用于授权的Session ID。
+    何时使用Apex SOAP API
+        如果要将你的Apex程序公开为SOAP Web服务API，请使用Apex SOAP API，以便外部应用程序可以通过SOAP访问调用你的Apex代码。（基本与Apex REST API类似只是一个支持REST一个支持SOAP）
+        Apex SOAP API支持OAuth 2.0和Session ID进行授权。
+    何时使用Tooling API
+        使用Tooling API将Salesforce元数据与其他系统集成。元数据类型公开为sObjects，因此你可以访问一个复杂类型的一个component，此字段级访问加快了对复杂元数据类型的操作。你还可以为Force.com应用程序构建自定义开发工具，例如，使用Tooling API来管理和部署Apex类、triggers、Visualforce pages和components的工作副本。你还可以设置checkpoints或heap dump markers、执行匿名的Apex程序、访问日志和代码覆盖信息。
+        REST和SOAP都支持。
 
 
 二、使用REST API
