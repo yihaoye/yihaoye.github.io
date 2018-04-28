@@ -78,3 +78,5 @@ categories: aws lambda
 
 AWS API Gateway：
     如果你需要以API形式expose该Lambda function的话，你还需要创建AWS API Gateway，然后在该Gateway下创建resource和method（在这一过程中关联Lambda function），最后一切就绪后Deploy API，则你会获取该API的endpoint，就可以在你的其他业务中使用该endpoint了。
+
+更多细节会在以后添加
