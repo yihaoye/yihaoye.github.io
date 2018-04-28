@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "使用AWS lambda调用Google Analytics Report API"
+title:  "使用AWS Lambda调用Google Analytics Report API"
 date:   2018-04-29 11:11:18 +1200
 categories: aws lambda
 ---
