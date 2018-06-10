@@ -17,6 +17,7 @@ Visualforce是服务器端模版语言，用来自定义用户桌面，其设计
 在进入主题前讲一个题外话，也许是salesforce本身也认识到Visualforce技术已经老旧了，因此salesforce本身也推出了Lightning Components framework这一前端框架作为他们的改进方案。
 
 一个简单Visualforce页面：
+```html
 <apex:page>
     <html>
         <head></head>
@@ -25,5 +26,6 @@ Visualforce是服务器端模版语言，用来自定义用户桌面，其设计
         </body>
     </html>
 </apex:page>
+```
 
 未完待续...

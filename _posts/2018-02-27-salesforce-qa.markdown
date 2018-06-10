@@ -14,5 +14,6 @@ categories: salesforce
     另外你也可能会需要一个security token（比如在IP限制之外的第三方访问API时[1]），这需要你去reset（这个在Light里就可以做的，首次创建或重设都是执行该reset），该token不会在你的salesforce org的portal或任何控制面板中显示，它只会发送至org的主联系人/管理员的联系邮箱，在这里你需要注意有些时候对salesforce的一些敏感信息（比如主联系人/管理员的密码改动）改动会触发该token的自动reset。更多请参考https://success.salesforce.com/answers?id=90630000000glADAAY
 
 
-
-[1]:When you access Salesforce from an IP address that isn’t trusted for your company, and you use a desktop client or the API, you need a security token to log in. What’s a security token? It’s a case-sensitive alphanumeric code that’s tied to your password. Whenever your password is reset, your security token is also reset.
+```text
+[1]: When you access Salesforce from an IP address that isn’t trusted for your company, and you use a desktop client or the API, you need a security token to log in. What’s a security token? It’s a case-sensitive alphanumeric code that’s tied to your password. Whenever your password is reset, your security token is also reset.
+```
