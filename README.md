@@ -1,2 +1,4 @@
 # yihaoye.github.io
-personal page
+personal blog
+
+Todo: add disqus
