@@ -13,8 +13,8 @@ categories: salesforce
 * 了解每种API限制并描述它们如何计算运行  
   
 ### Salesforce的API优先策略
-    Salesforce采用API优先策略来让你构建你的Salesforce应用上的features。"API优先"意味着在专注于设计公司的Salesforce应用UI之前为该应用features构建强大的API。这种方法使Salesforce开发人员能够灵活地根据需要操纵数据。  
-    Salesforce知道其客户和合作伙伴总想有新的方式去扩展Salesforce功能和AppExchange应用程序，也因此提供了用于在平台上开发的综合工具箱，这样使得Salesforce可以在API之上构建UI，以确保它们之间的行动相同协调。  
+Salesforce采用API优先策略来让你构建你的Salesforce应用上的features。"API优先"意味着在专注于设计公司的Salesforce应用UI之前为该应用features构建强大的API。这种方法使Salesforce开发人员能够灵活地根据需要操纵数据。  
+Salesforce知道其客户和合作伙伴总想有新的方式去扩展Salesforce功能和AppExchange应用程序，也因此提供了用于在平台上开发的综合工具箱，这样使得Salesforce可以在API之上构建UI，以确保它们之间的行动相同协调。  
   
 ### Salesforce Data APIs
 在这里将重点介绍了常用API们：它们是REST API，SOAP API，Bulk API和Streaming API。它们一起组成了Salesforce Data APIs。它们的目的是让你操纵Salesforce数据，而其他API可让你执行自定义页面布局或构建自定义开发工具等功能。你也可以使用其他Salesforce API来操纵Salesforce数据的子集，例如，Analytics REST API侧重于Analytics。但是，这四种API是广泛使用在核心Salesforce数据上的API。  
@@ -46,6 +46,7 @@ Salesforce会限制每个Org的API调用次数，以确保实例（Instance）�
   
 什么时候应该使用哪个API？  
 根据需求选择正确的API是重要的，以下是最常用的API的一些信息，包括支持的协议，数据格式，通信范例和实用案例。  
+
 API名	                | 协议	                 | 数据格式	              | 通信
 ---                    | ---                    | ---                   | ---
 REST API	           | REST	                | JSON, XML	            | 同步Synchronous
