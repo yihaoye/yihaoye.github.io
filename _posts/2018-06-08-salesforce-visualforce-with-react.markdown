@@ -51,7 +51,7 @@ Salesforce的Visualforce的["Container" Page](https://developer.salesforce.com/d
 </apex:page>
 ```
 
-上面的代码可知，当需要在本地测试时，就把<script src="http://localhost:8080/bundle.js"/>的注释去掉并注释掉<script src="{!URLFOR($Resource.reactreduxblog)}"/>即可。每次本地改动代码后，react server（webpack和axpress）会重编译并生成新的bundle.js，刷新你的salesforce app页面即可看到更新。  
+上面的代码可知，当需要在本地测试时，就把<script src="http://localhost:8080/bundle.js"/>的注释去掉并注释掉<script src="{!URLFOR($Resource.reactreduxblog)}"/>即可。每次本地改动代码后，react server（webpack和express.js）会重编译并生成新的bundle.js，刷新你的salesforce app页面即可看到更新。  
 
 如果你的React应用需要Ajax请求动作，则要使用[Visualforce Remote Objects](https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_remote_objects_example_simple.htm)，即上面的```<apex:remoteObjects>...</apex:remoteObjects>```  
 
