@@ -8,7 +8,7 @@ categories: aws lambda
 如果你需要使用AWS Lambda调用Google Analytics Report API并以API的形式expose的话，你还将需要集成AWS API Gateway。  
 
 以下是在AWS Lambda中使用Node.js调用Google Analytics Report API的示例代码：  
-// index.handler  
+// index.handler
 ```javascript
 var { google } = require('googleapis');
 // 这里显示的输入google的service_account key json数据是为了方便阅读和调试，在实际中最好将该部分数据放在AWS Lambda function中一个单独文件中，然后再以import的形式调用该数据
