@@ -6,7 +6,7 @@ categories: salesforce
 ---
 原文链接：https://trailhead.salesforce.com/trails/force_com_admin_beginner/modules/starting_force_com  
   
-# Salesforce平台入门基础  
+## Salesforce平台入门基础  
 
 ## 一、Salesforce平台初步
 备注：Salesforce有两个PC端的UI界面：Lightning Experience（新）和Salesforce Classic（旧）。本教程围绕新界面讲解。  
@@ -46,7 +46,9 @@ D'Angelo是DreamHouse的Salesforce管理员。他正在Salesforce平台上构建
 首先，了解Salesforce背后的数据库非常重要。当我们谈论数据库时，可以想象成一个巨大的电子表格。将信息放入Salesforce时，它会存储在数据库中，以便稍后再次访问它。它以非常特定的方式存储，因此你始终可以访问所需的信息。  
 让我们来看看DreamHouse应用中的一个页面，以定义它的一些重要元素以及它们与数据库的关系。  
 ![](https://res.cloudinary.com/hy4kyit2a/image/upload/f_auto,q_auto/doc/trailhead/en-uscc692c3f83b52641f81d56b626616a0b.png)  
-* App: Salesforce中的App是支持业务流程的一组对象，字段和其他功能。你可以查看你正在使用的App，并使用App Launcher![]（https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usac36d6d74354107658cfcef0d828d06f.png）在切换App。  
+* App: Salesforce中的App是支持业务流程的一组对象，字段和其他功能。你可以查看你正在使用的App，并使用App Launcher
+![]（https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usac36d6d74354107658cfcef0d828d06f.png）
+在切换App。  
 * Object：Object是Salesforce数据库中用于存储特定类型信息的table（表）。有像Account和Contact这样的标准对象以及你在插图中看到的Property（物业、房产）等自定义Object（对象）。  
 * Record：Record（记录）是Object（对象）数据库table（表）中的行。Record是与Object关联的实际数据。在这里，“211 Charles Street”的Property（物业）是一个Record。  
 * Field：Field（字段）是Object（对象）数据库table（表）中的列。标准和自定义对象都有字段。在我们的Property（物业）对象中，我们有像Address和Price这样的字段。  
