@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce入门基础1"
 date:   2018-02-24 02:34:23 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文链接：https://trailhead.salesforce.com/trails/lex_end_user/modules/sales-cloud-platform-quick-look/
 

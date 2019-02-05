@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce Admin入门1"
 date:   2018-02-25 17:42:33 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文链接：https://trailhead.salesforce.com/trails/force_com_admin_beginner/modules/starting_force_com  
   

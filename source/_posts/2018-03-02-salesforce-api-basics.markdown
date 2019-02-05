@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce API入门基础"
 date:   2018-03-02 11:09:08 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文链接：https://trailhead.salesforce.com/modules/api_basics
 

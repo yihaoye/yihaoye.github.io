@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce Apex基础与数据库"
 date:   2018-09-10 00:00:00 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 
 

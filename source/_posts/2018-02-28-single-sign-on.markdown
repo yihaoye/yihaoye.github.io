@@ -2,7 +2,8 @@
 layout: post
 title:  "Single Sign On"
 date:   2018-02-28 10:45:32 +1200
-categories: authentication
+categories: security
+tags: [sso, authentication]
 ---
 本文不止讨论Single Sign On（简称SSO），也讨论其他一些容易混淆的登录机制概念。  
   

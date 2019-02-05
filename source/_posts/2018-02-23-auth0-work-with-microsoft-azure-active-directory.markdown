@@ -2,7 +2,8 @@
 layout: post
 title:  "Auth0应用于Microsoft Azure Active Directory"
 date:   2018-02-23 11:39:15 +1200
-categories: auth0
+categories: security
+tags: auth0
 ---
 原文链接：https://auth0.com/docs/connections/enterprise/azure-active-directory/v2
 

@@ -2,8 +2,8 @@
 layout: post
 title:  "Auth0入门简介"
 date:   2017-05-27 00:38:03 +1200
-categories: auth0
-tags: [auth0]
+categories: security
+tags: auth0
 ---
 本文为Auth0入门简介，在接下来的文章中还会有更多的Auth0教程。  
   

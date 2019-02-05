@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce Admin入门2"
 date:   2018-02-26 01:19:01 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文链接：https://trailhead.salesforce.com/trails/force_com_admin_beginner/modules/data_modeling  
   

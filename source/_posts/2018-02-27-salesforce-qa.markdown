@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce常见问题"
 date:   2018-02-27 15:31:20 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 ## 常见问题：  
 

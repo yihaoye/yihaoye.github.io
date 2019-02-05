@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce CI/CD"
 date:   2018-08-28 21:12:21 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文参考：https://trailhead.salesforce.com/trails/sfdx_get_started/modules/sfdx_travis_ci/units/sfdx_travis_ci_setup
 

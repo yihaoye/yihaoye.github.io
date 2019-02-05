@@ -2,7 +2,8 @@
 layout: post
 title:  "Salesforce 目录"
 date:   2018-09-08 22:22:11 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 
 ## Salesforce各种概念、名词与发展历程  

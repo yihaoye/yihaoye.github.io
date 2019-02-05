@@ -2,7 +2,8 @@
 layout: post
 title:  "在Visualforce中嵌入React应用"
 date:   2018-06-08 14:05:11 +1200
-categories: salesforce
+categories: crm
+tags: salesforce
 ---
 原文参考：https://medium.com/@rajaraodv/developing-react-redux-apps-in-salesforce-s-visualforce-3ad7be560d1c  
 原文参考：https://sfdcnotes.github.io/2016/02/15/salesforce1-platform-guide/  

@@ -2,7 +2,8 @@
 layout: post
 title:  "使用AWS Lambda调用Google Analytics Report API"
 date:   2018-04-29 11:11:18 +1200
-categories: aws lambda
+categories: cloud
+tags: aws
 ---
 
 如果你需要使用AWS Lambda调用Google Analytics Report API并以API的形式expose的话，你还将需要集成AWS API Gateway。  

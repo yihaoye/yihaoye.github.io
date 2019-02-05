@@ -2,7 +2,8 @@
 layout: post
 title:  "SAML认证工作原理"
 date:   2018-02-2 15:19:01 +1200
-categories: auth0
+categories: security
+tags: auth0
 ---
 ### 什么是SAML？
 Security Assertion Markup Language (SAML)是一个基于XML的框架，用于在服务提供者（Service Provider）和身份提供者（Identity Provider）间提供认证和授权服务。  
