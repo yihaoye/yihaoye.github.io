@@ -1,4 +1,2 @@
 # yihaoye.github.io
-Personal blog
-
-Todo: add disqus, add carbonads(https://carbonads.net/).
+Todo: add disqus, add carbonads(https://carbonads.net/), SEO for hexo, GA GTM for hexo.  
