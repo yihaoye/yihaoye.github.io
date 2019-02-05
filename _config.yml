@@ -4,7 +4,7 @@
 
 # Site
 title: yihao学习笔记
-subtitle:
+subtitle: 个人技术学习、踩坑日志:)
 description:
 keywords:
 author: Yihao Ye
@@ -78,4 +78,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/yihaoye/yihaoye.github.io.git
+  branch: master
