@@ -19,6 +19,7 @@ OpenID
   
 令牌（token）有两种类型：bearer类型和mac类型  
   
+<!-- more -->
   
 SAML  
 

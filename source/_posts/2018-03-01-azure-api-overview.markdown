@@ -10,3 +10,5 @@ https://docs.microsoft.com/en-us/partner-center/develop/
 https://docs.microsoft.com/en-us/partner-center/develop/scenarios  
   
 Cloud Solution Provider（CSP）API  
+
+<!-- more -->

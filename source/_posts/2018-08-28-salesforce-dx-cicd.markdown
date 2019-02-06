@@ -11,6 +11,7 @@ tags: salesforce
 Salesforce DX允许开发者使用一系列第三方工具，这意味着你可以使用任何你想用的CI或CD服务。本文将使用GitHub和Travis CI举例实现CI/CD。  
 另外，在此之前你需要在本机安装Salesforce CLI、Git，并注册了GitHub账号。  
 
+<!-- more -->
 
 ### 一、准备工作 GitHub和Travis CI  
 然后把GitHub上的repository clone至本地，如  

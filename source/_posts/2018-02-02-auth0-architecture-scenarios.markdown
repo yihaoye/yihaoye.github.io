@@ -10,3 +10,5 @@ tags: auth0
   
 SSO for Regular Web Apps  
 这里的Regular Web Apps通常指前后端紧密耦合的旧式web应用。  
+
+<!-- more -->

@@ -18,6 +18,8 @@ tags: auth0
     2. 如果你已有Office365账号，可以通过Office365直接获得Azure AD账号。（https://portal.office.com/adminportal/home#/homepage打开左上角菜单的Admin centers，点击Azure AD）
     （如果想在你的应用里集成微软Azure AD，你必须基于你自己的微软Azure AD账号）
 
+<!-- more -->
+
 一、创建新的Azure应用
     登入微软Azure管理界面，点击左侧菜单栏的Azure Active Directory。
     然后在MANAGE下，点击App registrations。

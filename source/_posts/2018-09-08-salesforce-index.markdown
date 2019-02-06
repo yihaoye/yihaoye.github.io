@@ -13,6 +13,8 @@ Salesforce一开始是SaaS的CRM软件，提供了一套高度自由化可定制
 
 Salesforce数据库使用的是Oracle
 
+<!-- more -->
+
 几个容易混淆的术语：
 Salesforce
 Salesforce.com

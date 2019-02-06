@@ -21,6 +21,8 @@ tags: salesforce
 ### 快速介绍Salesforce
 你可能认为Salesforce只是一个CRM。它存储你的客户数据，为你提供培养潜在客户的流程，并提供与你合作的人员进行协作的方法。它可以完成所有这些事情。但如果说Salesforce“只是一个CRM”，就像说房子只是一个厨房，Salesforce除CRM之外还有很多功能。
 Salesforce带有许多标准功能和可用于运行业务的开箱即用的产品和功能。以下是多数企业使用Salesforce的一些常见需求以及我们为支持这些需求、活动而提供的解决方案。  
+
+<!-- more -->
   
 你需要：推销给潜在客户和客户；所以Salesforce提供：Leads和Opportunities来管理销售工作。  
 你需要：提供售后服务；所以Salesforce提供：提供Cases和Communities以帮助客户raise ticket并得到客服解答解决问题。  

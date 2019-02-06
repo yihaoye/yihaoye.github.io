@@ -9,6 +9,8 @@ tags: auth0
 Security Assertion Markup Language (SAML)是一个基于XML的框架，用于在服务提供者（Service Provider）和身份提供者（Identity Provider）间提供认证和授权服务。  
 Service Provider同意并信任Identity Provider从而对用户进行身份认证。另一方面，Identity Provider生成authentication assertion（认证断言），用来表示用户已被认证通过。  
 SAML是标准SSO形式。传递在Service Provider和dentity Provider间的认证信息包含在已数字签名（加密）的XML文件里。SAML是一种无缝认证复杂SSO的实现方式，通常用于企业与业务间。SAML无需键入密码等credentials。  
+
+<!-- more -->
   
 使用SAML好处包括：标准化、提升使用体验、更安全、目录服务登陆易实现-无需用户在目录服务内的信息以及烦恼目录间信息的同步问题、减少Service Provider的成本-Service Provider（你的应用）无需存储维护用户账户信息，Identity Provider将承担这些任务。  
   

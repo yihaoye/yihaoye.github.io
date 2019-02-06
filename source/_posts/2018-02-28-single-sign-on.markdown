@@ -16,6 +16,8 @@ tags: [sso, authentication]
 所以你只需要点击“Facebook认证”，浏览器就会把你转到Facebook网址下的授权页面（如果你在此浏览器未登录Facebook则你需要先登录Facebook）点击“同意授权”，然后浏览器又会回到Instagram网址并显示成功注册并登录。  
 此时你也可以发现Instagram已获得了一些你没有在Instagram输入过的个人信息（如头像、邮箱、联系方式、名字等等），当然这些是Facebook给予的因为你已经授权让Instagram从Facebook得到这些信息。（PS：Facebook的这些信息当然不是凭空来的，是你以前注册Facebook时输入或注册Facebook时也使用了第三方认证登录，所以如果你没有Facebook账号是不能执行基于Facebook的认证登录）  
   
+<!-- more -->
+
 一般现在的第三方认证登录是基于OAuth2.0的。  
   
 https://www.cnblogs.com/ywlaker/p/6113927.html  

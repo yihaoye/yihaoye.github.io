@@ -20,6 +20,8 @@ tags: salesforce
         * Salesforce是首个把CRM带入云计算领域的公司，它使你的公司可以网络上访问所有客户信息（包括手机等设备）。
         * Sales Cloud是Salesforce的CRM系统提供的其中一部分服务。Sales Cloud主要为销售人员服务。它是Salesforce最通用流行的产品，一般人提起Salesforce时其实是指Sales Cloud。
 
+<!-- more -->
+
     如何判定Sales Cloud是不是你需要的
         这个问题需要看看你的办公室，先思考你的企业运行业务的方式。看看一下是否符合你的情况：
         * 你的客户信息到处都是。（客户信息有的在便签、在Excel表格里、在邮件市场系统）这使得很难基于所有客户信息形成一个完整的图景。因此无法很好地与客户沟通以获得业务增长。

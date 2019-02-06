@@ -29,6 +29,8 @@ Visualforce是服务器端模版语言，用来自定义用户桌面，其设计
 </apex:page>
 ```
 
+<!-- more -->
+
 Salesforce的Visualforce的["Container" Page](https://developer.salesforce.com/docs/atlas.en-us.214.0.pages.meta/pages/pages_html_container_page.htm)：
 ```html
 <apex:page docType="html-5.0" applyHtmlTag="false" applyBodyTag="false" showHeader="false" sidebar="false" standardStylesheets="false" title="Container Page">

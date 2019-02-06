@@ -12,7 +12,10 @@ https://auth0.com/docs/hosted-pages/login
 ### 使用Auth0以助你认证用户有两种方式：  
 1. Universal Login（包含三种：Lock Widget、Lock Passwordless Widget、Custom Login Form。前两种使用lock.js，最后一个使用auth0.js）（用户进行登录或注册操作时会redirect到托管在Auth0的服务器的Hosted Page页面，比如https://{your_username}.{country_code}.auth0.com/login?client={your_client_code}，完成后再被redirect回你的App的网址，但是如果重定向地址里包含了connection参数及其值（与IDP相关），则用户可能会直接跳过Auth0的Hosted Page页面而直接跳转到该IDP的认证登录页面、网址）
 2. 自定义自己App的登录页面（不托管在Auth0的服务器而是你的前端代码）你的App代码使用Lock库或Auth0的SDK或直接调用Auth0的API（Authentication API）。（在自己的代码里使用Lock库就类似Auth0 Dashboard里的Hosted Page里的实例代码一样，比如lock.show()，弹出来的登录框造型一样，也叫embed Lock Widget）
-Auth0 Hosted Page就是第一种情况。
+
+<!-- more -->
+
+Auth0 Hosted Page就是第一种情况。  
 注意库Lock和库Auth0 SDK是两码事。（Lock包括CDN的lock.js、Lock for iOS、Lock for Android，只提供一些常用标准Authentication操作和UI）（Auth0 SDK包括CDN或npm的auth0.js、Auth0.Swift、Auth0.Android、Node-Auth0 etc，Auth0 SDK不包括UI但包括所有Authentication操作）（Auth0 SDK让开发者更方便直观的实现Authentication API提供的所有功能并提供一些额外的功能或便利，Lock和Auth0 SDK都是基于Authentication API的）  
   
 Auth0可以Host的Page有四种：Login、Password Reset、Guardian Multifactor、Error Page，分别处理不同的业务需求。
