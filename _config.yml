@@ -4,7 +4,7 @@
 
 # Site
 title: yihao学习笔记
-subtitle: 个人技术学习、踩坑日志:)
+subtitle:
 description:
 keywords:
 author: Yihao Ye
@@ -74,6 +74,12 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+
+# Search
+algolia:
+  applicationID: DY4301OMF9
+  indexName: yihaoyeblog
+  chunkSize: 5000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
