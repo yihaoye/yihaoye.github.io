@@ -19,7 +19,14 @@ script:
   - hexo g
 
 after_script:
-  - hexo d
+  - cd public
+  - git init
+  - git config user.name "yihaoye"
+  - git config user.email "yihaoyemail@gmail.com"
+  - git add .
+  - git commit -m "Realse new blog change from CI/CD"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
 
 branches:
   only:
@@ -28,3 +35,5 @@ branches:
 env:
  global:
    - HEXO_ALGOLIA_INDEXING_KEY: fc8012bde320e7fda40c15290878c9f9
+   - GH_REF: github.com/yihaoye/yihaoye.github.io.git
+   - secure: tUbEB2KQbfQSrXUjk3Vb9rdOmW6+5wsQF23M/ExNWh6mPh0mwuvf6xuKHwnGDnjkKgUQtOtJhT244oowOyz4eO6pKgSZx9lQZzs1802JqlDHTjMYqMGCn4bynsWwthKZarWsuWId+mh31pqMEiNtZin6/zgudJWcXvC8DhZalPi8zR2NWpbhxx6jl8sUnrYXfrwSPw/TuP3I0Kh1QqWsctcAlchmp5e5qhgsFo1Xzc37JLIZJlZcDWv8aBFp3YgilJX6yQc3yj7mzAebRg3AjZtJwZ//AKcOSq/eLHh+WVC5miGJPDIjUTYcLHRhusSJZpqdBnwoVU5ivBWF+Wo1vdWIu07Ny6LgTvOhD063K8z75jvGr4LdDrpEeyFN8uRTDcPsgAAFSlPyJMWJNHFKc07/I4WGvz4fa91UjTg4hICbKpJb1uYUAaEbbAnq846/iUWzA62iQiPaNBpZOzwMgPJ8GQd6eLgjmXppBqKdKF6vWjOsVtMRZc4WHr02UhBNRpE9Oo89wkHtwtCuB6CAfh3WGzTnWqBWl7uIEtKzoMqW9i7RXG94UsRg0M+b/ZqvHNPw9ZRYSUEGO5gLeVKhna5byOL2o7Dh6jVFIq32YLejVw9/BEsW/GMQBe4ffmhMJj0QAwjQ2Hvy6kxKdCfk4DHVr2cZgoBVb+sxqYIu3iI=
