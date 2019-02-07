@@ -1,5 +1,5 @@
 language: node_js
-node_js: v6.11.1
+node_js: stable
 
 # Travis-CI Caching
 cache:
@@ -13,7 +13,9 @@ install:
 # $GH_TOKEN pre seting (https://docs.travis-ci.com/user/environment-variables/)
 before_script:
   - sed -i "s#https://github.com/yihaoye/yihaoye.github.io.git#https://$GH_TOKEN@$GH_REF#g" _config.yml
-  - git clone https://github.com/theme-next/theme-next-algolia-instant-search themes/next/source/lib/algolia-instant-search
+  - cd themes/next
+  - git clone https://github.com/theme-next/theme-next-algolia-instant-search source/lib/algolia-instant-search
+  - cd ../..
   - hexo clean
   - hexo algolia
 
