@@ -1,0 +1,30 @@
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install hexo-cli -g
+  - npm install
+
+before_script:
+  - hexo clean
+  - export HEXO_ALGOLIA_INDEXING_KEY=${HEXO_ALGOLIA_INDEXING_KEY}
+  - hexo algolia
+
+script:
+  - hexo g
+
+after_script:
+  - hexo d
+
+branches:
+  only:
+    - hexo-version
+
+env:
+ global:
+   - HEXO_ALGOLIA_INDEXING_KEY: fc8012bde320e7fda40c15290878c9f9
