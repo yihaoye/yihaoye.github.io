@@ -19,14 +19,8 @@ script:
   - hexo g
 
 after_script:
-  - cd public
-  - git init
-  - git config user.name "yihaoye"
-  - git config user.email "yihaoyemail@gmail.com"
-  - git add .
-  - git commit -m "Realse new blog change from CI/CD"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
+  - sed -i 's/https:\/\/github\.com\/yihaoye\/yihaoye\.github\.io\.git/https:\/\/${GH_TOKEN}@${GH_REF}/g' _config.yml
+  - hexo d
 
 branches:
   only:
