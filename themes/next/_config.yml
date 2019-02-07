@@ -204,8 +204,9 @@ links_icon: link
 links_title: Links
 links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com
+links:
+  Trailhead: https://trailhead.salesforce.com/en/home/
+  Auth0: https://auth0.com/docs/
 
 # Sidebar Avatar
 avatar:
@@ -831,6 +832,10 @@ motion:
     coll_header: slideLeftIn
     # Only for Pisces | Gemini.
     sidebar: slideUpIn
+
+# Online contact  daovoice
+daovoice: true
+daovoice_app_id: b2d350fa
 
 # Fancybox. There is support for old version 2 and new version 3.
 # Choose only any one variant, do not need to install both.
