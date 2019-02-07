@@ -13,6 +13,7 @@ install:
 # $GH_TOKEN pre seting (https://docs.travis-ci.com/user/environment-variables/)
 before_script:
   - sed -i "s#https://github.com/yihaoye/yihaoye.github.io.git#https://$GH_TOKEN@$GH_REF#g" _config.yml
+  - git clone https://github.com/theme-next/theme-next-algolia-instant-search themes/next/source/lib/algolia-instant-search
   - hexo clean
   - hexo algolia
 
