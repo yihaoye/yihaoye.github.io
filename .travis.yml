@@ -10,7 +10,7 @@ install:
   - npm install hexo-cli -g
   - npm install
 
-# $GH_TOKEN pre seting (https://docs.travis-ci.com/user/environment-variables/)
+# $GH_TOKEN (i.e. Github Personal API tokens) need pre seting (https://docs.travis-ci.com/user/environment-variables/)
 before_script:
   - sed -i "s#https://github.com/yihaoye/yihaoye.github.io.git#https://$GH_TOKEN@$GH_REF#g" _config.yml
   - cd themes/next
