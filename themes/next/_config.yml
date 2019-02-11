@@ -892,6 +892,11 @@ canvas_ribbon:
   alpha: 0.6
   zIndex: -1
 
+# adsenses
+adsense:
+  google_adsense: true
+  google_ad_client: ca-pub-9663697242446300
+
 # Script Vendors.
 # Set a CDN address for the vendor you want to customize.
 # For example
