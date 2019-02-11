@@ -619,7 +619,7 @@ needmoreshare2:
 #google_site_verification:
 
 # Google Analytics
-google_analytics: UA-110462590-1
+#google_analytics: UA-110462590-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster
@@ -895,7 +895,8 @@ canvas_ribbon:
 # adsenses
 adsense:
   google_adsense: true
-  google_ad_client: ca-pub-9663697242446300
+  google_ad_client: "ca-pub-9663697242446300"
+  enable_page_level_ads: true
 
 # Script Vendors.
 # Set a CDN address for the vendor you want to customize.
