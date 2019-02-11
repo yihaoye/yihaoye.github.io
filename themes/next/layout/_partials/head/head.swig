@@ -113,7 +113,7 @@
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: {{ theme.adsense.google_ad_client }},
+      google_ad_client: "{{ theme.adsense.google_ad_client }}",
       enable_page_level_ads: {{ theme.adsense.enable_page_level_ads }}
     });
   </script>

@@ -895,7 +895,7 @@ canvas_ribbon:
 # adsenses
 adsense:
   google_adsense: true
-  google_ad_client: "ca-pub-9663697242446300"
+  google_ad_client: ca-pub-9663697242446300
   enable_page_level_ads: true
 
 # Script Vendors.
