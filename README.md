@@ -3,6 +3,7 @@ Todo: Add carbonads(https://carbonads.net/), SEO for hexo, GTM for hexo.
 
 ## daovoice登录
 http://dashboard.daovoice.io  
+(计划用 Salesforce Live Chat 替代)  
 
 ## disqus登录
 https://disqus.com/  

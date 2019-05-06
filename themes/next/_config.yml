@@ -834,7 +834,7 @@ motion:
     sidebar: slideUpIn
 
 # Online contact  daovoice
-daovoice: true
+daovoice: false
 daovoice_app_id: b2d350fa
 
 # Fancybox. There is support for old version 2 and new version 3.
