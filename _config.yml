@@ -76,11 +76,16 @@ pagination_dir: page
 theme: next
 
 # Search
-algolia:
-  applicationID: DY4301OMF9
-  apiKey: d13a6288eea48b2df9f8241cdbd28ade
-  indexName: yihaoyeblog
-  chunkSize: 5000
+# algolia:
+#   applicationID: DY4301OMF9
+#   apiKey: d13a6288eea48b2df9f8241cdbd28ade
+#   indexName: yihaoyeblog
+#   chunkSize: 5000
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
