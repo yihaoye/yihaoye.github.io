@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Salesforce Apex基础与数据库一、Apex 入门 …… 数据类型Apex Collections: ListLists 里包含了一个排了序的 objects 集，它和 Java 里的 List 是一样的，是数组类数据结构。下面的两个例子是同义的，即 colors 变量数组通过 List 语法声明。1List&amp;lt;String&amp;gt; colors = new List&amp;lt;Stri">
+<meta name="keywords" content="salesforce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Salesforce Apex基础与数据库">
+<meta property="og:url" content="https://yihaoye.github.io/2018/09/09/2018-09-10-salesforce-apex-basics-and-database/index.html">
+<meta property="og:site_name" content="yihao学习笔记">
+<meta property="og:description" content="Salesforce Apex基础与数据库一、Apex 入门 …… 数据类型Apex Collections: ListLists 里包含了一个排了序的 objects 集，它和 Java 里的 List 是一样的，是数组类数据结构。下面的两个例子是同义的，即 colors 变量数组通过 List 语法声明。1List&amp;lt;String&amp;gt; colors = new List&amp;lt;Stri">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/apex_database/apex_database_intro/images/b5f118b227075065ebbc42ff4e9ea26b_apex_database_architecture.png">
+<meta property="og:updated_time" content="2019-06-23T05:48:05.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Salesforce Apex基础与数据库">
+<meta name="twitter:description" content="Salesforce Apex基础与数据库一、Apex 入门 …… 数据类型Apex Collections: ListLists 里包含了一个排了序的 objects 集，它和 Java 里的 List 是一样的，是数组类数据结构。下面的两个例子是同义的，即 colors 变量数组通过 List 语法声明。1List&amp;lt;String&amp;gt; colors = new List&amp;lt;Stri">
+<meta name="twitter:image" content="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/apex_database/apex_database_intro/images/b5f118b227075065ebbc42ff4e9ea26b_apex_database_architecture.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yihao学习笔记" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://yihaoye.github.io/2018/09/09/2018-09-10-salesforce-apex-basics-and-database/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Salesforce Apex基础与数据库 | yihao学习笔记</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yihao学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yihaoye.github.io/2018/09/09/2018-09-10-salesforce-apex-basics-and-database/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yihao Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yihao学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Salesforce Apex基础与数据库
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-09 12:00:00" itemprop="dateCreated datePublished" datetime="2018-09-09T12:00:00+00:00">2018-09-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-23 05:48:05" itemprop="dateModified" datetime="2019-06-23T05:48:05+00:00">2019-06-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/crm/" itemprop="url" rel="index"><span itemprop="name">crm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/09/09/2018-09-10-salesforce-apex-basics-and-database/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/09/2018-09-10-salesforce-apex-basics-and-database/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Salesforce-Apex基础与数据库"><a href="#Salesforce-Apex基础与数据库" class="headerlink" title="Salesforce Apex基础与数据库"></a>Salesforce Apex基础与数据库</h2><h2 id="一、Apex-入门"><a href="#一、Apex-入门" class="headerlink" title="一、Apex 入门"></a>一、Apex 入门</h2><p><img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/apex_database/apex_database_intro/images/b5f118b227075065ebbc42ff4e9ea26b_apex_database_architecture.png" alt=""></p>
+<p>……</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="Apex-Collections-List"><a href="#Apex-Collections-List" class="headerlink" title="Apex Collections: List"></a>Apex Collections: List</h4><p>Lists 里包含了一个排了序的 objects 集，它和 Java 里的 List 是一样的，是数组类数据结构。<br>下面的两个例子是同义的，即 colors 变量数组通过 List 语法声明。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; colors = <span class="keyword">new</span> List&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>以数组形式声明但赋值给 List 而不是 array。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] colors = <span class="keyword">new</span> List&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>通过 List 声明通常更为简易，因为无需在一开始声明数组长度。List 语法可以在一开始声明元素，也可以在之后通过 add() 方法增添元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; colors = <span class="keyword">new</span> List&lt;String&gt;();</span><br><span class="line">String[] colors = <span class="keyword">new</span> List&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a list and add elements to it in one step</span></span><br><span class="line">List&lt;String&gt; colors = <span class="keyword">new</span> List&lt;String&gt; &#123; <span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span> &#125;;</span><br><span class="line"><span class="comment">// Add elements to a list after it has been created</span></span><br><span class="line">List&lt;String&gt; moreColors = <span class="keyword">new</span> List&lt;String&gt;();</span><br><span class="line">moreColors.add(<span class="string">'orange'</span>);</span><br><span class="line">moreColors.add(<span class="string">'purple'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>……</p>
+<h3 id="Apex-Classes"><a href="#Apex-Classes" class="headerlink" title="Apex Classes"></a>Apex Classes</h3><p>……</p>
+<a id="more"></a>
+<h2 id="二、使用-sObjects"><a href="#二、使用-sObjects" class="headerlink" title="二、使用 sObjects"></a>二、使用 sObjects</h2><p>在 Salesforce 里，标准和自定义的 object records 在 Apex 里一一对应它们的 sObject types。以下是一些 Apex 里常用的标准 object 的 sObject type 名。</p>
+<ul>
+<li>Account</li>
+<li>Contact</li>
+<li>Lead</li>
+<li>Opportunity</li>
+</ul>
+<h2 id="三、通过-DML-操作-Records"><a href="#三、通过-DML-操作-Records" class="headerlink" title="三、通过 DML 操作 Records"></a>三、通过 DML 操作 Records</h2><h3 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h3><ul>
+<li>通过 DML 插入, 更新, 以及删除 records</li>
+<li>批处理 DML 命令</li>
+<li>使用 upsert 来进行插入或更新一个 record</li>
+<li>Catch 一个 DML 指令的 Exception</li>
+<li>使用一个数据库方法/函数来插入新的带有部分成功选项的 records 并处理其结果</li>
+<li>应何时使用 DML 指令以及何时使用数据库操作/方法</li>
+<li>在相关 records 上执行 DML 指令操作</li>
+</ul>
+<h3 id="通过-DML-操作-Records"><a href="#通过-DML-操作-Records" class="headerlink" title="通过 DML 操作 Records"></a>通过 DML 操作 Records</h3><p>创建或更新一个 Salesforce 记录（record）时需要使用 Data Manipulation Language (DML)，其功能包括插入、更新、合并、删除和恢复记录（record）。<br>Apex 是一个 data-focused 语言且保存在 Lightning Platform, 它可以直接访问你的 Salesforce 上的数据。Apex不像其他语言，它不需要任何 setup。<br>以下例子是创建了一个 Acme 的 Account 后再在 insert 命令里调用，最后保存该 Account 到 Salesforce 上：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the account sObject </span></span><br><span class="line">Account acct = <span class="keyword">new</span> Account(Name=<span class="string">'Acme'</span>, Phone=<span class="string">'(415)555-1212'</span>, NumberOfEmployees=<span class="number">100</span>);</span><br><span class="line"><span class="comment">// Insert the account by using DML</span></span><br><span class="line">insert acct;</span><br></pre></td></tr></table></figure></p>
+<h3 id="DML-命令-指令"><a href="#DML-命令-指令" class="headerlink" title="DML 命令/指令"></a>DML 命令/指令</h3><p>以下是可用的 DML 命令/指令：</p>
+<ul>
+<li>insert</li>
+<li>update</li>
+<li>upsert</li>
+<li>delete</li>
+<li>undelete</li>
+<li>merge</li>
+</ul>
+<p>每个 DML 指令后可以跟随单个 sObject 或一组 sObjects。操纵一组 sObjects 对记录处理更加高效。<br>所有这些指令，除了两个（upsert 和 merge 是 Salesforce 为开发者方便而自创的）之外，都是和主流数据库指令相似的。<br>DML 指令 upsert 将新建或更新一个 sObject 记录，通过指定的一个判断 field 去判定是否已存在旧 objects，否则创建新的 ID field（如果没有指定判断 field）。<br>DML 指令 merge 最多可以合并三个记录（sObject 类型需一致）到其中一个记录里，并删除其余两个记录，并可以重新指定相关的父记录。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/salesforce/" rel="tag"># salesforce</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/08/2018-09-08-salesforce-index/" rel="next" title="Salesforce 目录">
+                <i class="fa fa-chevron-left"></i> Salesforce 目录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Yihao Ye">
+            
+              <p class="site-author-name" itemprop="name">Yihao Ye</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yihaoye" title="GitHub &rarr; https://github.com/yihaoye" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yihaoyemail@gmail.com" title="E-Mail &rarr; mailto:yihaoyemail@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://trailhead.salesforce.com/en/home/" title="https://trailhead.salesforce.com/en/home/" rel="noopener" target="_blank">Trailhead</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://auth0.com/docs/" title="https://auth0.com/docs/" rel="noopener" target="_blank">Auth0</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Salesforce-Apex基础与数据库"><span class="nav-number">1.</span> <span class="nav-text">Salesforce Apex基础与数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Apex-入门"><span class="nav-number">2.</span> <span class="nav-text">一、Apex 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apex-Collections-List"><span class="nav-number">2.1.1.</span> <span class="nav-text">Apex Collections: List</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apex-Classes"><span class="nav-number">2.2.</span> <span class="nav-text">Apex Classes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用-sObjects"><span class="nav-number">3.</span> <span class="nav-text">二、使用 sObjects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、通过-DML-操作-Records"><span class="nav-number">4.</span> <span class="nav-text">三、通过 DML 操作 Records</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习目标"><span class="nav-number">4.1.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-DML-操作-Records"><span class="nav-number">4.2.</span> <span class="nav-text">通过 DML 操作 Records</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-命令-指令"><span class="nav-number">4.3.</span> <span class="nav-text">DML 命令/指令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yihao Ye</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+  <script id="dsq-count-scr" src="https://yihaoyeblog.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://yihaoye.github.io/2018/09/09/2018-09-10-salesforce-apex-basics-and-database/";
+    this.page.identifier = "2018/09/09/2018-09-10-salesforce-apex-basics-and-database/";
+    this.page.title = 'Salesforce Apex基础与数据库';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yihaoyeblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
